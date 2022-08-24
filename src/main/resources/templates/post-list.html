@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
+</head>
+<body>
+<table>
+    <thead>
+    <td><a th:href="@{/posts/create}">Add New Post</a></td>
+
+    <tr>
+        <th>Post Author</th>
+        <th>Post Title</th>
+        <th>Add Picture</th>
+        <th>Add Movie</th>
+        <th>pic Text</th>
+        <!--        <th>Tag</th>-->
+        <th>Release Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.postAuthor}"/>
+        <td th:text="${post.postTitle}"/>
+        <td th:text="${post.addPic}"/>
+        <td th:text="${post.addMovie}"/>
+        <td th:text="${post.picText}"/>
+        <!--        <td th:text="${post.tag}"/>-->
+        <td th:text="${post.releaseDate}"/>
+
+
+        <td><a th:href="@{/posts/{id}/(id=${post.id})}">Details</a></td>
+        <td><a th:href="@{/posts/edit/{id}/(id=${post.id})}">Edit</a></td>
+        <td><a th:href="@{/posts/delete/{id}/(id=${post.id})}">Delete</a> </td>
+        <td><a th:href="@{/posts/comment/{id}/(id=${post.id})}">Comment</a> </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

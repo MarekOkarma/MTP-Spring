@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Comment Create</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
+</head>
+<body>
+<form method="post" th:action="@{/comments/save}" th:object="${emptyComment}">
+
+    Type your content:
+    <input type="text" th:field="*{commentText}">
+    Type your username:
+    <input type="text" th:field="*{userName}">
+
+    <button type="submit">Add Comment</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Edit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
+</head>
+<body>
+<from method="post" th:action="@{/posts/update}" th:object="${post}">
+
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>
+        Autor:
+        <input type="text" th:field="*{postAuthor}"/>
+    </label>
+    <label>
+        Tytuł:
+        <input type="text" th:field="*{postTitle}"/>
+
+    </label>
+    <label>
+        Opis:
+        <input type="text" th:field="*{addPic}"/>
+    </label>
+    <label>
+        Filmik:
+        <input type="text" th:field="*{addMovie}"/>
+    </label>
+    <label>
+        Zdjęcie:
+        <input type="text" th:field="*{picText}"/>
+    </label>
+    <!--    <label>-->
+    <!--        Tag:-->
+    <!--        <input type="text" th:field="*{tag}">-->
+    <!--    </label>-->
+    <label>
+        Data postu:
+        <input type="text" th:field="*{releaseDate}"/>
+    </label>
+
+    <button type="submit">Update Post</button>
+
+    <a th:href="@{/posts/list}">Return</a>
+
+
+</from>
+</body>
+</html>

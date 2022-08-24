@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Post Author</th>
+        <th scope="col">Post Title</th>
+        <th scope="col">Add Picture</th>
+        <th scope="col">Add Movie</th>
+        <th scope="col">Picture Text</th>
+        <!--        <th scope="col">Tag</th>-->
+        <th scope="col">Data</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <td th:text="${post.id}"/>
+    <td th:text="${post.postAuthor}"/>
+    <td th:text="${post.postTitle}"/>
+    <td th:text="${post.addPic}"/>
+    <td th:text="${post.addMovie}"/>
+    <td th:text="${post.picText}"/>
+    <!--    <td th:text="${post.tag}"/>-->
+    <td th:text="${post.releaseDate}"/>
+    </tbody>
+</table>
+
+<a th:href="@{/posts/list}">Return to post list</a>
+
+</body>
+</html>
