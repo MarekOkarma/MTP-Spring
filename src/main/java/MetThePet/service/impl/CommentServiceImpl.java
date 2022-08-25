@@ -14,7 +14,6 @@ public class CommentServiceImpl implements CommentService {
 
     public CommentServiceImpl() {
         comments = new ArrayList<>();
-        comments.add(new Comment("Pięknę zwierzątko", "Marcin" ));
     }
 
     @Override

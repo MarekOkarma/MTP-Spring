@@ -4,14 +4,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.time.Instant;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Comment {
 
-    private String commentText;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    private String userName;
+    @NotBlank
+    @Lob
+    private String content;
 
+    @ManyToOne
+    private User user;
+
+    private Instant createdDate;
 
 }

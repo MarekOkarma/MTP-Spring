@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Post Edit</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
 </head>
 <body>
 <from method="post" th:action="@{/posts/update}" th:object="${post}">
@@ -18,10 +17,9 @@
     <label>
         Tytuł:
         <input type="text" th:field="*{postTitle}"/>
-
     </label>
     <label>
-        Opis:
+        Zdjęcie:
         <input type="text" th:field="*{addPic}"/>
     </label>
     <label>
@@ -29,7 +27,7 @@
         <input type="text" th:field="*{addMovie}"/>
     </label>
     <label>
-        Zdjęcie:
+        Opis Zdjęcia:
         <input type="text" th:field="*{picText}"/>
     </label>
     <label>
@@ -37,7 +35,7 @@
         <input type="text" th:field="*{releaseDate}"/>
     </label>
 
-    <button type="submit">Update Post</button>
+    <button type="submit">Update post</button>
 
     <a th:href="@{/posts/list}">Return</a>
 

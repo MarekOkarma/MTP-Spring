@@ -5,7 +5,6 @@ import MetThePet.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -61,18 +60,12 @@ public class PostController {
 
     @GetMapping("/posts/edit/{id}")
     public String showEditPostForm(@PathVariable Integer id, ModelMap modelMap) {
-        modelMap.addAttribute("book", postService.getById(id));
-        return "post-edit";
-    }
-
-    @GetMapping("/posts/edit/{postTitle}")
-    public String showEditPostFrom(@PathVariable Integer id, ModelMap modelMap){
         modelMap.addAttribute("post", postService.getById(id));
         return "post-edit";
     }
 
     @PostMapping("/posts/update")
-    public  String handleUpdatedPost(@Valid @ModelAttribute("post") Post post, Errors errors){
+    public  String handleUpdatedPost(@ModelAttribute("post") Post post, Errors errors){
         log.info("Handle post to update: " + post);
 
         if (errors.hasErrors()){
