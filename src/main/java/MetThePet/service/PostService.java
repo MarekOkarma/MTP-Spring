@@ -2,7 +2,6 @@ package MetThePet.service;
 
 import MetThePet.model.Post;
 import java.util.List;
-import java.util.Optional;
 
 public interface PostService {
     void save(Post post);
@@ -13,7 +12,7 @@ public interface PostService {
 
     void update(Post post);
 
-    Optional<Post> getById(Integer id);
+    Post getById(Integer id);
 
     Post getBypostTitle(String postTitle);
 

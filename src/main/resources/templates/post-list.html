@@ -8,20 +8,19 @@
 <body>
 Logged as <p th:text="${currentUser}"/>
 
-<!--Logged as (thymeleaf) <p sec:authentication="name"/>-->
 
 <a th:href="@{/logout}">Logout</a>
 
-<div sec:authorize="hasRole('ROLE_ADMIN')">
-    <a th:href="@{/admin/posts/create}">Add new post</a>
-</div>
+
+    <a th:href="@{/posts/create}">Add new post</a>
+
 
 <table>
     <thead>
     <tr>
         <th>Post Author</th>
         <th>Post Title</th>
-<!--        <th>Add Picture</th>-->
+        <th>Add Picture</th>
 <!--        <th>Add Movie</th>-->
 <!--        <th>pic Text</th>-->
 <!--        <th>Release Date</th>-->
@@ -31,16 +30,15 @@ Logged as <p th:text="${currentUser}"/>
     <tr th:each="post : ${posts}">
         <td th:text="${post.postAuthor}"/>
         <td th:text="${post.postTitle}"/>
-<!--        <td th:text="${post.addPic}"/>-->
+        <td th:text="${post.addPic}"/>
 <!--        <td th:text="${post.addMovie}"/>-->
 <!--        <td th:text="${post.picText}"/>-->
 <!--        <td th:text="${post.releaseDate}"/>-->
-        <td><a th:href="@{/posts/{postTitle}/(postTitle=${post.postTitle})}">Details</a></td>
+        <td><a th:href="@{/posts/{id}/(id=${post.id})}">Details</a></td>
         <td><a th:href="@{/posts/comment/{id}/(id=${post.id})}">Comment</a> </td>
-        <td><a th:href="@{/posts/edit/{postTitle}/(postTitle=${post.postTitle})}">Edit</a></td>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
-            <td><a th:href="@{/admin/posts/delete/{postTitle}/(postTitle=${post.postTitle})}">Delete</a> </td>
-        </div>
+        <td><a th:href="@{/posts/edit/{id}/(id=${post.id})}">Edit</a></td>
+        <td><a th:href="@{/posts/delete/{id}/(id=${post.id})}">Delete</a> </td>
+
     </tr>
     </tbody>
 </table>

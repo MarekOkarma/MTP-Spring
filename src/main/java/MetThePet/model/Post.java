@@ -28,8 +28,6 @@ public class Post {
     @Column(length = 1000)
     private String picText;
 
-//    private String tag;
-
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate releaseDate;
 

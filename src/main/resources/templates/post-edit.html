@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
 </head>
 <body>
-<from method="post" th:action="@{/admin/posts/update}" th:object="${post}">
+<from method="post" th:action="@{/posts/update}" th:object="${post}">
 
 
     <input type="hidden" th:field="*{id}"/>

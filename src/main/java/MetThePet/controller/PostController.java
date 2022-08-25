@@ -34,13 +34,13 @@ public class PostController {
         return "post-list";
     }
 
-    @GetMapping("/admin/posts/create")
+    @GetMapping("/posts/create")
     public String showCreatePostForm(ModelMap modelMap) {
         modelMap.addAttribute("emptyPost", new Post());
         return "post-create";
     }
 
-    @PostMapping("/admin/posts/save")
+    @PostMapping("/posts/save")
     public String handleNewPost(@Valid @ModelAttribute("emptyPost") Post post, Errors errors) {
         log.info("Handle new post: " + post);
 
@@ -59,19 +59,19 @@ public class PostController {
         return "post-details";
     }
 
-    @GetMapping("/admin/posts/edit/{id}")
+    @GetMapping("/posts/edit/{id}")
     public String showEditPostForm(@PathVariable Integer id, ModelMap modelMap) {
         modelMap.addAttribute("book", postService.getById(id));
         return "post-edit";
     }
 
-    @GetMapping("/admin/posts/edit/{postTitle}")
-    public String showEditPostFrom(@PathVariable ModelMap modelMap, @PathVariable String postTitle){
-        modelMap.addAttribute("post", postService.getBypostTitle(postTitle));
+    @GetMapping("/posts/edit/{postTitle}")
+    public String showEditPostFrom(@PathVariable Integer id, ModelMap modelMap){
+        modelMap.addAttribute("post", postService.getById(id));
         return "post-edit";
     }
 
-    @PostMapping("/admin/posts/update")
+    @PostMapping("/posts/update")
     public  String handleUpdatedPost(@Valid @ModelAttribute("post") Post post, Errors errors){
         log.info("Handle post to update: " + post);
 
@@ -84,11 +84,12 @@ public class PostController {
         return "redirect:/posts/list";
     }
 
-    @GetMapping("/admin/posts/delete/{id}")
+    @GetMapping("/posts/delete/{id}")
     public String deletePost(@PathVariable Integer id) {
-        log.info("Deleted post with id " + id);
+        log.info("Deleted Post by id with " + id);
         postService.deleteById(id);
         return "redirect:/posts/list";
     }
+
 
 }

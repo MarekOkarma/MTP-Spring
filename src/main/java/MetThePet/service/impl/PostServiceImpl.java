@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -32,7 +31,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void deleteById(Integer id) {
-        Optional<Post> post = getById(id);
         postRepository.deleteById(id);
     }
 
@@ -42,8 +40,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Optional<Post> getById(Integer id) {
-        return Optional.ofNullable(postRepository.findById(id).orElse(null));
+    public Post getById(Integer id) {
+        return postRepository.findById(id).orElse(null);
     }
 
     @Override
