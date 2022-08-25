@@ -6,17 +6,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
 </head>
 <body>
-<form method="post" th:action="@{/posts/save}" th:object="${emptyPost}">
+<form method="post" th:action="@{/admin/posts/save}" th:object="${emptyPost}">
 
     <label>
         Autor:
         <input type="text" th:field="*{postAuthor}"/>
-        <!--        <td th:if="${#fields.hasErrors('postAuthor')}" th:errors="*{postAuthor}"/>-->
+                <td th:if="${#fields.hasErrors('postAuthor')}" th:errors="*{postAuthor}"/>
     </label>
     <label>
         Tytuł:
         <input type="text" th:field="*{postTitle}"/>
-        <!--        <td th:if="${#fields.hasErrors('postTitle')}" th:errors="*{postTitle}"/>-->
+                <td th:if="${#fields.hasErrors('postTitle')}" th:errors="*{postTitle}"/>
     </label>
     <label>
         Opis:
@@ -30,10 +30,6 @@
         Zdjęcie:
         <input type="text" th:field="*{picText}"/>
     </label>
-<!--    <label>-->
-<!--        Tag:-->
-<!--        <input type="text" th:field="*{tag}">-->
-<!--    </label>-->
     <label>
         Data postu:
         <input type="text" th:field="*{releaseDate}"/>

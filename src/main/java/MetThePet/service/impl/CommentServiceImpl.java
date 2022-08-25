@@ -10,20 +10,21 @@ import java.util.List;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    public List<Comment> commentList;
+    private List<Comment> comments;
 
-    public void CommentService(){
-        commentList = new ArrayList<>();
-        commentList.add(new Comment());
+    public CommentServiceImpl() {
+        comments = new ArrayList<>();
+        comments.add(new Comment("Pięknę zwierzątko", "Marcin" ));
     }
 
     @Override
     public void save(Comment comment) {
 
+        comments.add(comment);
     }
 
     @Override
     public List<Comment> getAll() {
-        return null;
+        return comments;
     }
 }

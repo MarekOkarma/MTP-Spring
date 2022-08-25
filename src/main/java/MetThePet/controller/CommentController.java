@@ -35,7 +35,7 @@ public class CommentController {
     }
 
     @GetMapping("/posts/{id}/comments")
-    public String recipeComments(@PathVariable Integer id,ModelMap modelMap) {
+    public String postComments(@PathVariable Integer id,ModelMap modelMap) {
         modelMap.addAttribute("comments", commentService.getAll());
         modelMap.addAttribute("post", postService.getById(id));
         return "redirect:/post-details";
